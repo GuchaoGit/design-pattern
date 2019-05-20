@@ -1,11 +1,14 @@
 package com.guc.pattern;
 
+import com.guc.pattern.entity.Circle;
 import com.guc.pattern.entity.Person;
 import com.guc.pattern.entity.Product;
 import com.guc.pattern.generics.Box;
 import com.guc.pattern.generics.GenericsUtils;
 import com.guc.pattern.inface.IShape;
 import com.guc.pattern.pattern.*;
+import com.guc.pattern.pattern.decorator.RedShapeDecorator;
+import com.guc.pattern.pattern.decorator.ShapeDecorator;
 import com.guc.pattern.pattern.filter.AndCriteria;
 import com.guc.pattern.pattern.filter.CriteriaMale;
 import com.guc.pattern.pattern.filter.CriteriaSingle;
@@ -66,6 +69,12 @@ public class main {
         printPersons(single.meetCriteria(persons));
         System.out.println("单身男士：");
         printPersons(singleMale.meetCriteria(persons));
+
+        System.out.println("*******************************");
+        System.out.println("装饰者模式：");
+        IShape circle = new Circle();
+        ShapeDecorator redCircle = new RedShapeDecorator(circle);
+        redCircle.draw();
 
     }
 
