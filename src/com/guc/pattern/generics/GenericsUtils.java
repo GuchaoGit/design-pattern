@@ -1,5 +1,7 @@
 package com.guc.pattern.generics;
 
+import java.util.List;
+
 /**
  * 泛型工具
  */
@@ -29,5 +31,13 @@ public class GenericsUtils {
     @SuppressWarnings("unchecked")
     public static <T> T typeCast(Object obj){
         return (T)obj;
+    }
+
+    /**
+     * 类型通配符
+     * @param data
+     */
+    public static void getData(List<?> data) {
+        System.out.print("data first element is :" + data.get(0) + "\ndata size is :" + data.size());
     }
 }
