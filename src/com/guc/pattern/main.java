@@ -12,6 +12,8 @@ import com.guc.pattern.pattern.decorator.ShapeDecorator;
 import com.guc.pattern.pattern.filter.AndCriteria;
 import com.guc.pattern.pattern.filter.CriteriaMale;
 import com.guc.pattern.pattern.filter.CriteriaSingle;
+import com.guc.pattern.pattern.memento.CareTaker;
+import com.guc.pattern.pattern.memento.Originator;
 import com.guc.pattern.pattern.observer.BinaryObserver;
 import com.guc.pattern.pattern.observer.HexaObserver;
 import com.guc.pattern.pattern.observer.Observable;
@@ -86,6 +88,24 @@ public class main {
         new BinaryObserver(observable);
         new HexaObserver(observable);
         observable.setState(15);
+
+        System.out.println("");
+        System.out.println("*******************************");
+        System.out.println("备忘录模式：");
+        Originator originator = new Originator();
+        CareTaker careTaker = new CareTaker();
+        originator.setState("State #1");
+        originator.setState("State #2");
+        careTaker.add(originator.saveStateToMemento());
+        originator.setState("State #3");
+        careTaker.add(originator.saveStateToMemento());
+        originator.setState("State #4");
+        System.out.println("Current state:" + originator.getState());
+        originator.getStateFromMemento(careTaker.get(0));
+        System.out.println("First saved State:"+ originator.getState());
+        originator.getStateFromMemento(careTaker.get(1));
+        System.out.println("Second saved State:"+ originator.getState());
+
     }
 
     public static void printPersons(List<Person> persons){

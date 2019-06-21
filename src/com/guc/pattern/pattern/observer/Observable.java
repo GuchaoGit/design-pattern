@@ -27,6 +27,10 @@ public class Observable {
         observers.add(observer);
     }
 
+    public void remove(Observer observer){
+        observers.remove(observer);
+    }
+
     public synchronized void notifyAllObservers(){
         for (Observer observer:observers){
             observer.update(this,null);
