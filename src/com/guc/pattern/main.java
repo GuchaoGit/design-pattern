@@ -12,6 +12,9 @@ import com.guc.pattern.pattern.decorator.ShapeDecorator;
 import com.guc.pattern.pattern.filter.AndCriteria;
 import com.guc.pattern.pattern.filter.CriteriaMale;
 import com.guc.pattern.pattern.filter.CriteriaSingle;
+import com.guc.pattern.pattern.observer.BinaryObserver;
+import com.guc.pattern.pattern.observer.HexaObserver;
+import com.guc.pattern.pattern.observer.Observable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +79,13 @@ public class main {
         ShapeDecorator redCircle = new RedShapeDecorator(circle);
         redCircle.draw();
 
+        System.out.println("");
+        System.out.println("*******************************");
+        System.out.println("观察者模式：");
+        Observable observable = new Observable();
+        new BinaryObserver(observable);
+        new HexaObserver(observable);
+        observable.setState(15);
     }
 
     public static void printPersons(List<Person> persons){

@@ -28,16 +28,16 @@ public class GenericsUtils {
      * @param <T> 目标类型
      * @return 返回目标类型数据
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked unused")
     public static <T> T typeCast(Object obj){
         return (T)obj;
     }
 
     /**
      * 类型通配符
-     * @param data
+     * @param datas 数据
      */
-    public static void getData(List<?> data) {
-        System.out.print("data first element is :" + data.get(0) + "\ndata size is :" + data.size());
+    public static void getData(List<?> datas) {
+        System.out.print("data first element is :" + datas.get(0) + "\ndata size is :" + datas.size());
     }
 }
