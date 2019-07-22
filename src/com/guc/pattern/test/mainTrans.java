@@ -26,7 +26,7 @@ public class mainTrans {
         System.out.println("二进制数：\t" + Integer.toBinaryString(ocb2));
 
         System.out.println("Short 整型--------------------------");
-        short ocb3 = -32768;
+        short ocb3 = 32767;
         System.out.println("十进制数：\t" + ocb3 +" size："+ Short.SIZE);
         System.out.println("十六进制数：\t0x"  +Integer.toHexString(ocb3));
         System.out.println("十六进制数：\t0x"  +ByteUtils.shortToHexString(ocb3));
